@@ -13,10 +13,11 @@ public class Raster extends JPanel {
     private static final int FPS = 1000 / 30;
 
     public Raster() {
+        setPreferredSize(new Dimension(800, 600));
         // inicializace image, nastavení rozměrů (nastavení typu - pro nás nedůležité)
         img = new BufferedImage(800, 600, BufferedImage.TYPE_INT_RGB);
         g = img.getGraphics();
-        setTimer();
+        setLoop();
     }
 
     @Override
@@ -26,12 +27,11 @@ public class Raster extends JPanel {
         // pro zájemce - co dělá observer - https://stackoverflow.com/a/1684476
     }
 
-    private void setTimer() {
+    private void setLoop() {
         // časovač, který 30 krát za vteřinu obnoví obsah plátna aktuálním img
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                // říct plátnu, aby zobrazilo aktuální img
                 repaint();
             }
         }, 0, FPS);

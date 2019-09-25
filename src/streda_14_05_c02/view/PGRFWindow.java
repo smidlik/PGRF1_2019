@@ -1,6 +1,7 @@
 package streda_14_05_c02.view;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class PGRFWindow extends JFrame {
 
@@ -9,14 +10,21 @@ public class PGRFWindow extends JFrame {
     public PGRFWindow() {
         // bez tohoto nastavení se okno zavře, ale aplikace stále běží na pozadí
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(800, 600); // velikost okna
-        setLocationRelativeTo(null); // vycentrovat okno
         setTitle("PGRF1 cvičení"); // titulek okna
 
         raster = new Raster();
         raster.setFocusable(true);
         raster.grabFocus(); // důležité pro pozdější ovládání z klávesnice
+
+        FlowLayout layout = new FlowLayout();
+        layout.setVgap(0);
+        layout.setHgap(0);
+
+        setLayout(layout);
         add(raster); // vložit plátno do okna
+        pack();
+
+        setLocationRelativeTo(null); // vycentrovat okno
     }
 
     public Raster getRaster() {
