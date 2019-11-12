@@ -1,6 +1,6 @@
-package streda_14_05_c02.main;
+package main;
 
-import streda_14_05_c02.view.PGRFWindow;
+import view.PGRFWindow;
 
 import javax.swing.*;
 
